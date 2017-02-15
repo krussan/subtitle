@@ -54,6 +54,10 @@ public class SrtParser implements SubtitleParser {
         CursorStatus cursorStatus = CursorStatus.NONE;
         SrtCue cue = null;
 
+        br.mark(1);
+        if (br.read() != 0xFEFF)
+          br.reset();
+        
         while ((textLine = br.readLine()) != null) {
             textLine = textLine.trim();
 

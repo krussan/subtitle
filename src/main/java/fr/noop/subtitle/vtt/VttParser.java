@@ -68,6 +68,10 @@ public class VttParser implements SubtitleParser {
         VttCue cue = null;
         String cueText = ""; // Text of the cue
 
+        br.mark(1);
+        if (br.read() != 0xFEFF)
+          br.reset();
+        
         while ((textLine = br.readLine()) != null) {
             textLine = textLine.trim();
 

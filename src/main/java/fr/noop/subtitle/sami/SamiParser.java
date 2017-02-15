@@ -57,6 +57,10 @@ public class SamiParser implements SubtitleParser {
         SamiCue cue = null;
         SamiCue previousCue = null;
 
+        br.mark(1);
+        if (br.read() != 0xFEFF)
+          br.reset();
+        
         while ((textLine = br.readLine()) != null) {
             textLine = textLine.trim();
             // Lower case text line
