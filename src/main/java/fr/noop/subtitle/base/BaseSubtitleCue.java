@@ -93,13 +93,12 @@ public abstract class BaseSubtitleCue implements SubtitleCue {
     }
 
     public String getText() {
-        String[] texts = new String[this.lines.size()];
+        StringBuilder sb = new StringBuilder();
 
-        for (int i=0; i<texts.length; i++) {
-            texts[i] = this.lines.get(i).toString();
-        }
-
-        return String.join("\n", texts);
+        for (SubtitleLine l : this.getLines())
+        	sb.append(l.toString());
+        
+        return sb.toString();
     }
 
     @Override
