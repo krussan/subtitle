@@ -96,7 +96,7 @@ public abstract class BaseSubtitleCue implements SubtitleCue {
         StringBuilder sb = new StringBuilder();
 
         for (SubtitleLine l : this.getLines())
-        	sb.append(l.toString());
+        	sb.append(String.format("%s\n", l.toString()));
         
         return sb.toString();
     }
