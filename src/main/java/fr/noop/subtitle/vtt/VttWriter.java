@@ -51,7 +51,7 @@ public class VttWriter implements SubtitleWriter {
                 os.write(startToEnd.getBytes(this.charset));
 
                 // Write text
-                String text = String.format("%s\n", cue.getText());
+                String text = cue.getText();
                 os.write(text.getBytes(this.charset));
 
                 // Write empty line
